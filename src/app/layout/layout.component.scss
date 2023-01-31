@@ -1,0 +1,48 @@
+.header {
+  background-color: #0000;
+  padding: 1rem 14rem;
+  width: 100vw;
+  position: fixed;
+  height: 84px;
+  z-index: 99;
+}
+
+.header img {
+  max-width: 1.2in;
+}
+
+.header.sticky {
+  height: 58px;
+}
+
+.sticky:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: inset 0 0 2000px rgb(50 50 50 / 50%);
+  backdrop-filter: blur(7px);
+  background: inherit;
+  z-index: 0;
+}
+
+.header.sticky img {
+  max-width: 0.9in;
+  z-index: 1;
+}
+
+.main-container {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../../assets/img/bg.png");
+  position: fixed;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.content {
+  top: 84px;
+  position: absolute;
+}

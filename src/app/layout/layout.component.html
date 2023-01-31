@@ -1,0 +1,35 @@
+<div class="main-container" (scroll)="onScroll($event)">
+
+    <mat-toolbar [ngClass]="{ sticky: scrolled }" class="header">
+
+        <mat-toolbar-row>
+
+            <div class="logo-cont">
+                <img src="../../assets/img/logo.png">
+            </div>
+
+
+            <span>
+                <nav>
+                    <ul>
+                        <li>
+                            <a></a>
+                        </li>
+                        <li>
+                            <a href=""></a>
+                        </li>
+                    </ul>
+                </nav>
+            </span>
+        </mat-toolbar-row>
+
+    </mat-toolbar>
+
+
+    <div class="content" id="scrollable">
+        <router-outlet></router-outlet>
+    </div>
+
+
+
+</div>
