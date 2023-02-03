@@ -1,27 +1,28 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LayoutComponent } from './layout/layout.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/home',
-    pathMatch: 'full',
-  },
-  {
-    path: '',
     component: LayoutComponent,
     children: [
+      { path: '', redirectTo: '/home', pathMatch: 'full' },
       {
         path: 'home',
-        loadChildren: () =>
-          import('./pages/pages.module').then((m) => m.PagesModule),
+        component: HomeComponent,
       },
+      {
+        path: 'contact',
+        component: ContactComponent,
+      },
+      { path: '**', component: PageNotFoundComponent },
     ],
   },
-  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({

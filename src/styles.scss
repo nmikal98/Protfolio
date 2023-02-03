@@ -1,4 +1,5 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/ngx-toastr/toastr-bs5-alert.scss";
 
 $base-color: #13005a;
 $accent-color: #03c988;
@@ -17,17 +18,36 @@ body {
 
 h1 {
   font-size: 3rem !important;
+
   color: $accent-color;
+
+  @media screen and (max-width: 674px) {
+    font-size: 2rem !important;
+  }
 }
 
 h2 {
   font-size: 2.5rem !important;
   color: #bcc5ca;
+
+  @media screen and (max-width: 674px) {
+    font-size: 1.7rem !important;
+  }
 }
 
 h3 {
   font-size: 2rem !important;
   color: $accent-color;
+}
+
+.flex-middle {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-right {
+  display: flex;
+  justify-content: flex-end;
 }
 
 ::-webkit-scrollbar-track {
@@ -51,4 +71,73 @@ h3 {
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: $accent-color-light;
+}
+
+.custom-row {
+  margin: 2rem 0px;
+  padding: 4rem;
+}
+
+.divider {
+  border: 6px solid $light-blue;
+  border-radius: 8px;
+  width: 15%;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+}
+
+// Main btn-primary
+.btn-primary {
+  padding: 0.8em 1.7em;
+  background-color: transparent;
+  border-radius: 0.3em;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.5s;
+  font-weight: 400;
+  font-size: 17px;
+  border: 1px solid $accent-color;
+  font-family: inherit;
+  text-transform: uppercase;
+  color: $accent-color;
+  z-index: 1;
+}
+
+.btn-primary::before,
+.btn-primary::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 50px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
+  background-color: $accent-color;
+  transition: 1s ease;
+}
+
+.btn-primary::before {
+  top: -1em;
+  left: -1em;
+}
+
+.btn-primary::after {
+  left: calc(100% + 1em);
+  top: calc(100% + 1em);
+}
+
+.btn-primary:hover::before,
+.btn-primary:hover::after {
+  height: 410px;
+  width: 410px;
+}
+
+.btn-primary:hover {
+  color: rgb(10, 25, 30);
+}
+
+.btn-primary:active {
+  filter: brightness(0.8);
 }
