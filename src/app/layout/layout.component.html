@@ -1,11 +1,9 @@
 <div class="main-container">
 
 
-    <div class="mobile-header" fxHide.gt-sm>
+    <!-- <div class="mobile-header" >
 
-        <!-- <button mat-icon-button (click)="snav.toggle()" fxShow="true" style="color:#fff">
-            <mat-icon>menu</mat-icon>
-        </button> -->
+     
 
         <div class="logo">
             <a routerLink="/home"><img src="../../assets/img/logo.png"></a>
@@ -19,11 +17,15 @@
 
             </a></div>
 
-    </div>
+    </div> -->
 
 
-    <mat-toolbar [ngClass]="{ sticky: scrolled }" class="header" fxHide.lt-md>
+    <mat-toolbar [ngClass]="{ sticky: scrolled }" class="header">
         <mat-toolbar-row>
+
+            <button mat-icon-button (click)="snav.toggle()" fxShow="true" style="color:#fff" fxHide.gt-sm>
+                <mat-icon>menu</mat-icon>
+            </button>
 
             <div class="logo-cont">
                 <a routerLink="/home"><img src="../../assets/img/logo.png"></a>
@@ -32,7 +34,7 @@
 
 
 
-            <nav class="main-menu" fxShow="true">
+            <nav class="main-menu" fxShow="true" fxHide.lt-md>
                 <ul>
                     <li>
                         <a routerLink="/home" routerLinkActive="is-active" class="top-navigation-button">
@@ -63,46 +65,69 @@
     </mat-toolbar>
 
 
-    <mat-sidenav-container fxFlexFill style="position: absolute;">
-        <!-- <mat-sidenav #snav>
-            <mat-nav-list>
+    <mat-sidenav-container fxFlexFill>
+        <mat-sidenav #snav [ngClass]="{ top58: scrolled }">
+            <mat-nav-list class="mobile-navmenu">
 
-                <a mat-list-item routerLink="/home" routerLinkActive="is-active" class="top-navigation-button">
+                <a mat-list-item routerLink="/home" routerLinkActive="is-active" class="mobile-menu-item">
 
                     <mat-icon>home</mat-icon>
                     <span>Home</span>
 
                 </a>
 
-                <a mat-list-item routerLink="/contact" routerLinkActive="is-active" class="top-navigation-button">
+                <a mat-list-item routerLink="/contact" routerLinkActive="is-active" class="mobile-menu-item">
 
                     <mat-icon>mail_outline</mat-icon>
                     <span> Say Hello </span>
 
                 </a>
+
+                <a mat-list-item href="https://github.com/nmikal98/Protfolio.git" class="mobile-menu-item">
+                    <img src="../../assets/img/branch.svg">
+                    <span> GitHub Link </span>
+
+                </a>
+
+
             </mat-nav-list>
-        </mat-sidenav> -->
+        </mat-sidenav>
 
 
         <mat-sidenav-content fxFlexFill (scroll)="onScroll($event)">
 
-            <div class="content" id="scrollable">
+
+            <div class="outlet" id="scrollable">
+
+
                 <router-outlet></router-outlet>
+
+
             </div>
 
 
+            <div class="footer">
+                <div class="row">
+                    <div class="col-md-12 flex-right">
+                        <p> © 2023 All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
         </mat-sidenav-content>
+
+
     </mat-sidenav-container>
 
 
 
 
-</div>
-
-<div class="footer">
-    <div class="row">
-        <div class="col-md-12 flex-right">
-            <p> © 2023 All Rights Reserved.</p>
-        </div>
-    </div>
 </div>

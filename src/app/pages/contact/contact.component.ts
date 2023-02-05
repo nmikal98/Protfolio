@@ -50,6 +50,7 @@ export class ContactComponent implements OnInit {
     this.contact.PostMessage(FormData).subscribe(
       (resopnse) => {
         location.href = 'https://mailthis.to/confirm';
+        this.submitted = false;
         this.FormData.reset();
       },
       (error) => {

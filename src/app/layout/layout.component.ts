@@ -7,14 +7,14 @@ import { Component, HostListener, Inject } from '@angular/core';
 })
 export class LayoutComponent {
   scrolled: boolean = false;
-  distance: any = 82;
+  distance: any = 0;
 
   onScroll(e: any) {
     const element = document.getElementById('scrollable');
 
     this.distance = element?.getBoundingClientRect().top;
 
-    if (this.distance < 82) {
+    if (this.distance != 0) {
       this.scrolled = true;
     } else {
       this.scrolled = false;

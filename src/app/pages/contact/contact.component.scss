@@ -51,3 +51,10 @@
     min-height: 145px;
   }
 }
+
+.contact-form-wrapper {
+  @media screen and (max-width: 992px) {
+    margin-bottom: 4rem;
+    padding: 2rem;
+  }
+}
